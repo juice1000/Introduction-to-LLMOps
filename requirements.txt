@@ -1,0 +1,53 @@
+# Core FastAPI and web framework
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+pydantic==2.5.0
+
+# LangChain and LLM integration
+langchain==0.0.299  # Compatible with langsmith <0.1.0 and Python 3.9
+langchain-community==0.0.8  # Compatible with langsmith <0.1.0 and Python 3.9
+ollama==0.1.7
+requests==2.31.0
+
+# Vector database and embeddings
+chromadb==0.4.18
+sentence-transformers==2.2.2  # Compatible with Python 3.9
+transformers==4.33.0  # Compatible with Python 3.9
+torch==2.0.1  # Compatible with Python 3.9
+
+# Data processing
+pandas==2.1.4
+numpy==1.26.4  # Updated to satisfy unstructured and other dependencies
+
+# Document loaders
+pypdf==3.17.4
+unstructured==0.12.6  # Updated for Python 3.12+
+python-multipart==0.0.6
+
+# Configuration and environment
+python-dotenv==1.0.0
+pydantic-settings==2.1.0
+
+# Evaluation frameworks
+# Note: Install promptfoo separately via npm: npm install -g promptfoo
+# ragas==0.0.22  # Uncomment when available
+
+# Monitoring and logging
+structlog==23.2.0
+
+# Development and testing
+pytest==7.4.3
+pytest-asyncio==0.21.1
+black==23.11.0
+flake8==6.1.0
+mypy==1.7.1
+
+# Optional: YAML support
+PyYAML==6.0.1
+
+# Optional: Jupyter for notebooks
+jupyter==1.0.0
+ipykernel==6.27.1
+
+# Optional: Docker support
+# gunicorn==21.2.0  # For production deployment

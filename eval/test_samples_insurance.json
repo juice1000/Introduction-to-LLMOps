@@ -1,0 +1,50 @@
+[
+  {
+    "question": "How do I file an auto insurance claim?",
+    "ground_truth": "To file an auto insurance claim with SafeGuard, contact the 24/7 claims hotline at 1-800-SAFEGUARD, provide your policy number and incident details, submit required documentation including police report and photos within 30 days, and expect a decision within 7-10 business days.",
+    "context": [
+      "SafeGuard Insurance provides 24/7 claims service",
+      "Auto claims require police reports and photos of damage",
+      "Claims should be reported within 24 hours when possible"
+    ]
+  },
+  {
+    "question": "What discounts are available for auto insurance?",
+    "ground_truth": "SafeGuard offers several auto insurance discounts including Safe Driver Discount (25% off for 5+ years claim-free), Multi-Policy Discount (15% when bundling), Good Student Discount (10%), Defensive Driving Course (5%), Anti-theft Device (up to 10%), and Low Mileage Discount (5-15% for under 7,500 miles annually).",
+    "context": ["Multiple discounts available for auto insurance", "Safe driver discounts reward claim-free driving", "Bundling policies provides significant savings"]
+  },
+  {
+    "question": "What does home insurance cover?",
+    "ground_truth": "Home insurance covers dwelling structure (Coverage A), other structures like garages (Coverage B), personal property (Coverage C), personal liability (Coverage E), medical payments to others (Coverage F), and additional living expenses if the home is uninhabitable (Coverage G).",
+    "context": ["Home insurance has multiple coverage types", "Dwelling coverage protects the house structure", "Personal property coverage protects belongings"]
+  },
+  {
+    "question": "How long does it take to process a claim?",
+    "ground_truth": "Claim processing times vary by type: Auto claims take 7-10 business days, Property claims take 10-15 business days, Health claims take 5-7 business days, and Life insurance claims take 15-30 business days.",
+    "context": [
+      "Processing times depend on claim complexity",
+      "Auto claims are typically faster than property claims",
+      "All claims are acknowledged within 1 business day"
+    ]
+  },
+  {
+    "question": "What is a deductible and how does it work?",
+    "ground_truth": "A deductible is the amount you pay out-of-pocket before insurance coverage begins. Higher deductibles typically mean lower premiums. Common amounts are $250-$1,000 for auto, $500-$2,500 for home, and vary by plan for health insurance.",
+    "context": ["Deductibles are out-of-pocket expenses before coverage", "Higher deductibles reduce premium costs", "Deductible amounts vary by insurance type"]
+  },
+  {
+    "question": "How can I contact customer service?",
+    "ground_truth": "SafeGuard customer service can be reached by phone at 1-800-CUSTOMER (24/7), through the online customer portal, email at support@safeguardinsurance.com, live chat on the website, the SafeGuard Mobile App, or through local agents.",
+    "context": ["Multiple customer service contact options available", "Phone support available 24/7 for claims", "Online and mobile options for convenience"]
+  },
+  {
+    "question": "What types of life insurance do you offer?",
+    "ground_truth": "SafeGuard offers both Term Life Insurance (Level Term, Decreasing Term, Convertible Term) and Permanent Life Insurance (Whole Life, Universal Life, Variable Life) with different features for guaranteed death benefits, flexible premiums, and investment components.",
+    "context": ["Both term and permanent life insurance available", "Term insurance is temporary coverage", "Permanent insurance builds cash value"]
+  },
+  {
+    "question": "When are insurance premiums due?",
+    "ground_truth": "Premium payment schedules include Monthly (due same date each month), Quarterly (every 3 months), Semi-annually (every 6 months), and Annually (once per year). Grace periods are 10 days for monthly payments and 30 days for other schedules.",
+    "context": ["Multiple payment schedule options available", "Grace periods protect against late payments", "Payment frequency affects grace period length"]
+  }
+]

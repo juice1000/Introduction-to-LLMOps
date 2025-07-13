@@ -1,0 +1,35 @@
+[
+  {
+    "question": "What is the main purpose of this LLMOps system?",
+    "ground_truth": "The main purpose is to provide a production-ready chatbot with RAG capabilities for question answering and document retrieval.",
+    "context": [
+      "This is an LLMOps system designed for chatbot applications",
+      "The system implements retrieval-augmented generation (RAG)",
+      "It provides API endpoints for chat interactions"
+    ]
+  },
+  {
+    "question": "How does the RAG system work?",
+    "ground_truth": "RAG works by retrieving relevant documents from a vector store and using them as context for generating responses with a language model.",
+    "context": [
+      "RAG combines retrieval and generation",
+      "Documents are embedded and stored in a vector database",
+      "Relevant documents are retrieved based on semantic similarity"
+    ]
+  },
+  {
+    "question": "What evaluation metrics are used?",
+    "ground_truth": "The system uses RAGAS metrics including faithfulness, answer relevancy, context precision, and context recall.",
+    "context": ["RAGAS provides comprehensive evaluation metrics", "Faithfulness measures grounding in context", "Answer relevancy measures question-answer alignment"]
+  },
+  {
+    "question": "What file formats are supported for document ingestion?",
+    "ground_truth": "The system supports text files (.txt), PDF files (.pdf), markdown files (.md), JSON files, and CSV files.",
+    "context": ["Multiple file formats are supported", "Text loaders handle different document types", "Documents are processed and chunked automatically"]
+  },
+  {
+    "question": "How is the system configured?",
+    "ground_truth": "The system is configured through environment variables and a Config class that manages API keys, database paths, and model parameters.",
+    "context": ["Configuration is managed through environment variables", "The Config class handles all settings", "API keys and paths are configurable"]
+  }
+]
