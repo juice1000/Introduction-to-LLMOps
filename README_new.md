@@ -20,6 +20,7 @@ A basic LLMOps application using FastAPI, LangChain, ChromaDB, and Ollama for a 
 ## Quick Start
 
 1. **Clone and setup:**
+
    ```bash
    git clone <your-repo>
    cd Introduction-to-LLMOps
@@ -27,17 +28,20 @@ A basic LLMOps application using FastAPI, LangChain, ChromaDB, and Ollama for a 
    ```
 
 2. **Add documents:**
+
    ```bash
    # Add your documents to data/documents/
    # Supports .txt and .md files
    ```
 
 3. **Index documents:**
+
    ```bash
    python load_documents.py
    ```
 
 4. **Start the API:**
+
    ```bash
    uvicorn app.main:app --reload
    ```
@@ -107,6 +111,7 @@ API_VERSION=1.0.0
 ## Dependencies
 
 Core packages:
+
 - fastapi - Web framework
 - langchain - LLM framework
 - langchain_ollama - Ollama integration
@@ -123,16 +128,19 @@ Core packages:
 ## Troubleshooting
 
 1. **Ollama not running:**
+
    ```bash
    ollama serve
    ```
 
 2. **Model not available:**
+
    ```bash
    ollama pull gemma2:2b
    ```
 
 3. **Dependencies issues:**
+
    ```bash
    pip install -r requirements.txt
    ```
@@ -145,6 +153,7 @@ Core packages:
 ## Next Steps
 
 This is a basic setup. You can extend it by:
+
 - Adding more document types
 - Implementing user authentication
 - Adding conversation memory

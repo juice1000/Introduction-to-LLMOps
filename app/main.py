@@ -1,132 +1,171 @@
 """
-Main FastAPI application for the SafeGuard Insurance chatbot system.
-Provides API endpoints for chat interactions with RAG capabilities using Ollama.
+Simple Insurance Chatbot API
+A basic LLMOps application using FastAPI, LangChain, and Ollama
 """
 
-import logging
-from datetime import datetime
+import os
 from typing import List, Optional
 
-from chains import ChatChain
-from config import Config
+from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from ollama_utils import OllamaManager
+from langchain.schema import Document
+from langchain_chroma import Chroma
+from langchain_ollama import OllamaEmbeddings, OllamaLLM
 from pydantic import BaseModel
 
-# Configure logging
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
+# Load environment variables
+load_dotenv()
 
 # Initialize FastAPI app
 app = FastAPI(
-    title="SafeGuard Insurance AI Assistant",
-    description="AI-powered customer service for SafeGuard Insurance with RAG capabilities",
-    version="1.0.0",
+    title=os.getenv("API_TITLE", "Simple Insurance Chatbot"),
+    version=os.getenv("API_VERSION", "1.0.0"),
+    description="A simple insurance chatbot using Ollama and LangChain",
 )
 
-# Add CORS middleware
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+# Configuration
+OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
+OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "gemma3:12b")
+CHROMA_PERSIST_DIRECTORY = os.getenv("CHROMA_PERSIST_DIRECTORY", "./data/vector_store")
 
-# Initialize configuration
-config = Config()
+# Initialize LLM and embeddings
+llm = OllamaLLM(model=OLLAMA_MODEL, base_url=OLLAMA_BASE_URL)
 
-# Initialize Ollama manager
-ollama_manager = OllamaManager(config.OLLAMA_BASE_URL, config.OLLAMA_MODEL)
+embeddings = OllamaEmbeddings(model=OLLAMA_MODEL, base_url=OLLAMA_BASE_URL)
 
-# Initialize chat chain
-chat_chain = ChatChain(config)
+# Initialize vector store
+try:
+    vector_store = Chroma(persist_directory=CHROMA_PERSIST_DIRECTORY, embedding_function=embeddings)
+except Exception as e:
+    print(f"Warning: Could not initialize vector store: {e}")
+    vector_store = None
 
 
-# Pydantic models for request/response
+# Pydantic models
 class ChatRequest(BaseModel):
     message: str
-    conversation_id: Optional[str] = None
-    use_rag: bool = True
+    use_context: bool = True
 
 
 class ChatResponse(BaseModel):
     response: str
-    conversation_id: str
-    timestamp: datetime
     sources: Optional[List[str]] = None
 
 
 class HealthResponse(BaseModel):
     status: str
-    timestamp: datetime
-    version: str
-    ollama_status: Optional[dict] = None
+    ollama_status: str
+    vector_store_status: str
 
 
-@app.get("/", response_model=HealthResponse)
+# Add CORS middleware
+origins = [
+    "http://localhost:3000",
+    "http://localhost:5173",  # Vite dev server
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
+@app.get("/", response_model=dict)
 async def root():
-    """Health check endpoint including Ollama status."""
-    # Check Ollama health
-    ollama_health = ollama_manager.health_check()
-
-    # Determine overall status
-    status = (
-        "healthy"
-        if ollama_health.get("ollama_running", False) and ollama_health.get("model_functional", False)
-        else "degraded"
-    )
-
-    return HealthResponse(status=status, timestamp=datetime.now(), version="1.0.0", ollama_status=ollama_health)
+    """Root endpoint"""
+    return {"message": "Simple Insurance Chatbot API", "docs": "/docs", "health": "/health"}
 
 
-@app.get("/health/ollama")
-async def ollama_health():
-    """Detailed Ollama health check endpoint."""
-    return ollama_manager.health_check()
+@app.get("/health", response_model=HealthResponse)
+async def health_check():
+    """Health check endpoint"""
+
+    # Check Ollama
+    try:
+        test_response = llm.invoke("Hello")
+        ollama_status = "healthy" if test_response else "unhealthy"
+    except Exception as e:
+        ollama_status = f"unhealthy: {str(e)}"
+
+    # Check vector store
+    if vector_store:
+        try:
+            # Try to get collection info
+            vector_store._collection.count()
+            vector_store_status = "healthy"
+        except Exception as e:
+            vector_store_status = f"unhealthy: {str(e)}"
+    else:
+        vector_store_status = "not initialized"
+
+    overall_status = "healthy" if ollama_status == "healthy" else "degraded"
+
+    return HealthResponse(status=overall_status, ollama_status=ollama_status, vector_store_status=vector_store_status)
 
 
 @app.post("/chat", response_model=ChatResponse)
 async def chat(request: ChatRequest):
-    """
-    Process an insurance-related chat message and return a response.
+    """Chat endpoint"""
 
-    Args:
-        request: ChatRequest containing the user message and configuration
-
-    Returns:
-        ChatResponse with the bot's response and metadata
-    """
     try:
-        logger.info(f"Processing chat request: {request.message[:100]}...")
+        sources = []
+        context = ""
 
-        # Process the message through the chat chain
-        result = await chat_chain.process_message(
-            message=request.message, conversation_id=request.conversation_id, use_rag=request.use_rag
-        )
+        # Get context from vector store if available and requested
+        if request.use_context and vector_store:
+            try:
+                # Search for relevant documents
+                docs = vector_store.similarity_search(request.message, k=3)
+                if docs:
+                    context = "\n".join([doc.page_content for doc in docs])
+                    sources = [doc.metadata.get("source", "unknown") for doc in docs]
+            except Exception as e:
+                print(f"Vector search error: {e}")
 
-        return ChatResponse(
-            response=result["response"],
-            conversation_id=result["conversation_id"],
-            timestamp=datetime.now(),
-            sources=result.get("sources", []),
-        )
+        # Prepare prompt
+        if context:
+            prompt = f"""You are a helpful insurance assistant. Use the following context to answer the user's question.
+
+Context:
+{context}
+
+User Question: {request.message}
+
+Answer based on the context provided. If the context doesn't contain relevant information, say so politely."""
+        else:
+            prompt = f"""You are a helpful insurance assistant. Answer the following question:
+
+{request.message}"""
+
+        # Get response from LLM
+        response = llm.invoke(prompt)
+
+        return ChatResponse(response=response, sources=sources if sources else None)
 
     except Exception as e:
-        logger.error(f"Error processing chat request: {str(e)}")
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail=f"Error processing request: {str(e)}")
 
 
-@app.get("/conversations/{conversation_id}")
-async def get_conversation(conversation_id: str):
-    """Retrieve conversation history."""
-    try:
-        history = await chat_chain.get_conversation_history(conversation_id)
-        return {"conversation_id": conversation_id, "history": history}
-    except Exception as e:
-        logger.error(f"Error retrieving conversation: {str(e)}")
-        raise HTTPException(status_code=404, detail="Conversation not found")
+@app.get("/info")
+async def get_info():
+    """Get system information"""
+    doc_count = 0
+    if vector_store:
+        try:
+            doc_count = vector_store._collection.count()
+        except:
+            doc_count = "unknown"
+
+    return {
+        "model": OLLAMA_MODEL,
+        "base_url": OLLAMA_BASE_URL,
+        "documents_indexed": doc_count,
+        "vector_store_path": CHROMA_PERSIST_DIRECTORY,
+    }
 
 
 if __name__ == "__main__":
