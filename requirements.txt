@@ -18,7 +18,7 @@ llama-index-embeddings-ollama
 llama-index-llms-ollama
 
 # Data processing and utilities
-"unstructured[md]"
+unstructured[md] 
 nltk
 langdetect
 sqlmodel

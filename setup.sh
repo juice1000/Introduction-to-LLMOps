@@ -38,7 +38,7 @@ if [ ! -f ".env" ]; then
     cat > .env << EOF
 # Ollama Configuration
 OLLAMA_BASE_URL=http://localhost:11434
-OLLAMA_MODEL=gemma3:12b
+OLLAMA_MODEL=gemma3:1b
 
 # Vector Store
 CHROMA_PERSIST_DIRECTORY=./data/vector_store
@@ -73,22 +73,22 @@ if ! curl -s http://localhost:11434/api/tags > /dev/null 2>&1; then
 fi
 
 # Pull the required model
-echo "📥 Checking for Gemma 3:12B model..."
-if ! ollama list | grep -q "gemma3:12b"; then
-    echo "🤖 Pulling Gemma 3:12B model (this may take a few minutes)..."
-    ollama pull gemma3:12b
+echo "📥 Checking for Gemma 3:1B model..."
+if ! ollama list | grep -q "gemma3:1b"; then
+    echo "🤖 Pulling Gemma 3:1B model (this may take a few minutes)..."
+    ollama pull gemma3:1b
     
     if [ $? -ne 0 ]; then
-        echo "❌ Failed to pull Gemma 3:12B model. Please check your internet connection."
+        echo "❌ Failed to pull Gemma 3:1B model. Please check your internet connection."
         exit 1
     fi
 else
-    echo "✅ Gemma 3:12B model is already available"
+    echo "✅ Gemma 3:1B model is already available"
 fi
 
 # Test the model
 echo "🧪 Testing Ollama model..."
-test_response=$(ollama run gemma3:12b "Hello, respond with 'Working'")
+test_response=$(ollama run gemma3:1b "Hello, respond with 'Working'")
 if [[ "$test_response" == *"Working"* ]] || [[ "$test_response" == *"working"* ]]; then
     echo "✅ Ollama model is working correctly"
 else
