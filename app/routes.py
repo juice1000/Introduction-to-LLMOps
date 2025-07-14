@@ -1,16 +1,15 @@
 from fastapi import APIRouter, HTTPException
-from fastapi.middleware.cors import CORSMiddleware
 
-from .config import (
+from app.config.config import (
     API_TITLE,
     API_VERSION,
     CHROMA_PERSIST_DIRECTORY,
     OLLAMA_BASE_URL,
     OLLAMA_MODEL,
 )
-from .llm import embeddings, llm
-from .models import ChatRequest, ChatResponse, HealthResponse
-from .vector_store import get_context, vector_store
+from app.llm.llm import embeddings, llm
+from app.models.models import ChatRequest, ChatResponse, HealthResponse
+from app.vector_store.vector_store import get_context, vector_store
 
 router = APIRouter()
 

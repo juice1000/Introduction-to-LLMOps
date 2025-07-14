@@ -1,7 +1,7 @@
 from langchain_chroma import Chroma
 
-from .config import CHROMA_PERSIST_DIRECTORY
-from .llm import embeddings
+from app.config.config import CHROMA_PERSIST_DIRECTORY
+from app.llm.llm import embeddings
 
 try:
     vector_store = Chroma(persist_directory=CHROMA_PERSIST_DIRECTORY, embedding_function=embeddings)

@@ -6,7 +6,7 @@ A basic LLMOps application using FastAPI, LangChain, and Ollama
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.config import API_TITLE, API_VERSION
+from app.config.config import API_TITLE, API_VERSION
 from app.routes import router
 
 origins = ["http://localhost:5173"]  # Vite dev server
