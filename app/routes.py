@@ -120,3 +120,31 @@ async def get_evaluation_categories():
         result[category] = {"count": len(data), "questions": data["inputs"].tolist()}
 
     return result
+
+
+@router.post("/eval/run")
+async def run_evaluation_endpoint(
+    sample_size: int = 5, use_context: bool = False, use_llm_judge: bool = True, log_to_mlflow: bool = True
+):
+    """Run evaluation on a sample of questions with optional MLflow tracking."""
+    try:
+        from app.evaluation.evaluator import run_evaluation, save_evaluation_results
+
+        # Run the evaluation
+        results = await run_evaluation(
+            sample_size=sample_size, use_context=use_context, use_llm_judge=use_llm_judge, log_to_mlflow=log_to_mlflow
+        )
+
+        # Save results to file
+        filepath = save_evaluation_results(results)
+
+        return {
+            "status": "completed",
+            "summary": results["summary"],
+            "results_file": str(filepath),
+            "mlflow_tracking": log_to_mlflow,
+            "mlflow_ui": "http://localhost:5000" if log_to_mlflow else None,
+        }
+
+    except Exception as e:
+        return {"status": "error", "error": str(e)}
