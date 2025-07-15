@@ -12,11 +12,6 @@ langchain_ollama
 # Vector storage
 chromadb
 
-# LlamaIndex ecosystem
-llama-index
-llama-index-embeddings-ollama
-llama-index-llms-ollama
-
 # Data processing and utilities
 unstructured[md] 
 nltk
@@ -33,3 +28,10 @@ pytest
 # Web automation (if needed)
 selenium
 webdriver-manager
+
+# Experiment tracking
+mlflow
+openai
+
+# Data analysis
+pandas

@@ -43,13 +43,25 @@ fi
 #     exit 1
 # fi
 
-# kill the uvicorn process if it's running
-
+# Kill existing processes
+echo "🧹 Cleaning up existing processes..."
 lsof -ti:8000 | xargs kill -9 2>/dev/null || true
 lsof -ti:5173 | xargs kill -9 2>/dev/null || true
+lsof -ti:5000 | xargs kill -9 2>/dev/null || true
 
-echo "🔍 FastAPI app startup..."
+# Start MLflow in background
+echo "📊 Starting MLflow server..."
+mlflow server --backend-store-uri ./mlruns --host 127.0.0.1 --port 5000 --serve-artifacts &
+
+echo "🚀 FastAPI app startup..."
 uvicorn app.main:app --host 127.0.0.1 --port 8000 --reload &
+
+echo "🚀 Frontend app startup..."
 cd chat-interface && npm run dev &
-echo "✅ All checks passed! Environment is ready to use."
+
+echo ""
+echo "✅ Services started!"
+echo "🌐 API: http://localhost:8000"
+echo "📊 MLflow: http://localhost:5000"
+echo "💻 Frontend: http://localhost:5173"
 

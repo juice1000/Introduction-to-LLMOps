@@ -7,8 +7,10 @@ from app.config.config import (
     OLLAMA_BASE_URL,
     OLLAMA_MODEL,
 )
+from app.evaluation import eval_data
 from app.llm.llm import embeddings, llm
 from app.models.models import ChatRequest, ChatResponse, HealthResponse
+from app.tracking import get_ollama_response
 from app.vector_store.vector_store import get_context, vector_store
 
 router = APIRouter()
@@ -56,10 +58,22 @@ async def chat(request: ChatRequest):
             context, sources = get_context(request.message)
             print(f"Context retrieved: {len(context)} characters, sources: {sources}")
         if context:
-            prompt = f"""You are a helpful insurance assistant. Use the following context to answer the user's question.\n\nContext:\n{context}\n\nUser Question: {request.message}\n\nAnswer based on the context provided. If the context doesn't contain relevant information, say so politely."""
+            messages = [
+                {
+                    "role": "system",
+                    "content": "You are a helpful insurance assistant. Use the provided context to answer user questions.",
+                },
+                {"role": "user", "content": f"Context: {context}\n\nQuestion: {request.message}"},
+            ]
         else:
-            prompt = f"""You are a helpful insurance assistant. Answer the following question:\n\n{request.message}"""
-        response = llm.invoke(prompt)
+            messages = [
+                {"role": "system", "content": "You are a helpful insurance assistant."},
+                {"role": "user", "content": request.message},
+            ]
+
+        # Use auto-logged OpenAI client instead of direct LLM
+        response = get_ollama_response(messages)
+
         return ChatResponse(response=response, sources=sources if sources else None)
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error processing request: {str(e)}")
@@ -79,3 +93,29 @@ async def get_info():
         "documents_indexed": doc_count,
         "vector_store_path": CHROMA_PERSIST_DIRECTORY,
     }
+
+
+@router.get("/eval/sample")
+async def get_evaluation_sample():
+    """Get a sample of evaluation questions."""
+    sample = eval_data.head(5)
+    return {
+        "total_questions": len(eval_data),
+        "sample_size": len(sample),
+        "questions": sample["inputs"].tolist(),
+        "sample_data": sample.to_dict("records"),
+    }
+
+
+@router.get("/eval/categories")
+async def get_evaluation_categories():
+    """Get evaluation questions by category."""
+    from app.evaluation.eval_data import get_question_categories
+
+    categories = get_question_categories()
+
+    result = {}
+    for category, data in categories.items():
+        result[category] = {"count": len(data), "questions": data["inputs"].tolist()}
+
+    return result
