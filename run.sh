@@ -44,17 +44,12 @@ fi
 # fi
 
 # kill the uvicorn process if it's running
-uvicorn_pid=$(pgrep -f "uvicorn app.main:app")
-if [ -n "$uvicorn_pid" ]; then
-    echo "🔍 Stopping existing FastAPI app..."
-    kill $uvicorn_pid
-    sleep 2
-    if pgrep -f "uvicorn app.main:app" > /dev/null; then
-        echo "❌ Failed to stop existing FastAPI app."
-        exit 1
-    fi
-fi
+
+lsof -ti:8000 | xargs kill -9 2>/dev/null || true
+lsof -ti:5173 | xargs kill -9 2>/dev/null || true
+
 echo "🔍 FastAPI app startup..."
 uvicorn app.main:app --host 127.0.0.1 --port 8000 --reload &
+cd chat-interface && npm run dev &
 echo "✅ All checks passed! Environment is ready to use."
 

@@ -45,7 +45,7 @@ async def chat(request: ChatRequest):
         context = ""
         embeddings_supported = True
         try:
-            _ = embeddings.embed_query("test")
+            _ = embeddings.embed_query("The insured person's name is Julien Look")
         except Exception as e:
             print(f"Embeddings not supported: {e}")
             embeddings_supported = False
@@ -54,6 +54,7 @@ async def chat(request: ChatRequest):
         )
         if request.use_context and vector_store and embeddings_supported:
             context, sources = get_context(request.message)
+            print(f"Context retrieved: {len(context)} characters, sources: {sources}")
         if context:
             prompt = f"""You are a helpful insurance assistant. Use the following context to answer the user's question.\n\nContext:\n{context}\n\nUser Question: {request.message}\n\nAnswer based on the context provided. If the context doesn't contain relevant information, say so politely."""
         else:
