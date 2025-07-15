@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import './App.css';
+import './styles/background.scss'; // switched from App.css to SCSS background
 
 interface Message {
   id: number;
@@ -30,16 +30,16 @@ function App() {
 
   const sendMessage = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!inputValue.trim() || isLoading) return;
 
     const userMessage: Message = {
       id: Date.now(),
       text: inputValue.trim(),
-      sender: 'user'
+      sender: 'user',
     };
 
-    setMessages(prev => [...prev, userMessage]);
+    setMessages((prev) => [...prev, userMessage]);
     setInputValue('');
     setIsLoading(true);
     setError(null);
@@ -52,7 +52,7 @@ function App() {
         },
         body: JSON.stringify({
           message: userMessage.text,
-          use_context: true
+          use_context: true,
         }),
       });
 
@@ -66,10 +66,10 @@ function App() {
         id: Date.now() + 1,
         text: data.response,
         sender: 'assistant',
-        sources: data.sources
+        sources: data.sources,
       };
 
-      setMessages(prev => [...prev, assistantMessage]);
+      setMessages((prev) => [...prev, assistantMessage]);
     } catch (err) {
       console.error('Error sending message:', err);
       setError('Failed to send message. Please make sure the API server is running on localhost:8000');
@@ -102,22 +102,21 @@ function App() {
               <br />• Policy information
               <br />• General insurance questions
               <br />
-              <br />How can I help you today?
+              <br />
+              How can I help you today?
             </div>
           </div>
         )}
-        
+
         {messages.map((message) => (
           <div key={message.id} className={`message ${message.sender}`}>
             <div>{message.text}</div>
             {message.sources && message.sources.length > 0 && (
-              <div className="message-sources">
-                Sources: {message.sources.map(source => source.split('/').pop()).join(', ')}
-              </div>
+              <div className="message-sources">Sources: {message.sources.map((source) => source.split('/').pop()).join(', ')}</div>
             )}
           </div>
         ))}
-        
+
         {isLoading && (
           <div className="message assistant">
             <div className="loading">
@@ -126,15 +125,11 @@ function App() {
             </div>
           </div>
         )}
-        
+
         <div ref={messagesEndRef} />
       </div>
 
-      {error && (
-        <div className="error-message">
-          {error}
-        </div>
-      )}
+      {error && <div className="error-message">{error}</div>}
 
       <div className="chat-input-container">
         <form onSubmit={sendMessage} className="chat-input-form">
@@ -147,11 +142,7 @@ function App() {
             disabled={isLoading}
             rows={1}
           />
-          <button 
-            type="submit" 
-            disabled={!inputValue.trim() || isLoading}
-            className="send-button"
-          >
+          <button type="submit" disabled={!inputValue.trim() || isLoading} className="send-button">
             Send
           </button>
         </form>
