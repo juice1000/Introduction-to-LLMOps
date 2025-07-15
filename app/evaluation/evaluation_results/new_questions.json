@@ -110,5 +110,19 @@
       "user_question": "Hi!"
     },
     "response_time": 1.3608601093292236
+  },
+  {
+    "timestamp": "2025-07-15T16:03:53.328836",
+    "question": "Hello!",
+    "llm_response": "Hello! How can I help you today?",
+    "similarity_check": {
+      "match": false,
+      "confidence": 0.0,
+      "reason": "Not an insurance question.",
+      "matched_question": null,
+      "ground_truth": null,
+      "user_question": "Hello!"
+    },
+    "response_time": 1.2676563262939453
   }
 ]

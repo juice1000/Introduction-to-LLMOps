@@ -24,6 +24,7 @@ langgraph
 # Evaluation
 deepeval
 pytest
+promptfoo
 
 # Web automation (if needed)
 selenium

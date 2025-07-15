@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=https://promptfoo.dev/config-schema.json
+
+description: 'Insurance chatbot user query regression eval'
+
+prompts:
+  - file://prompts/prompt_v1.txt
+  - file://prompts/prompt_v2.txt
+
+providers:
+  - 'ollama:chat:gemma3:1b'
+
+tests: file://eval_data.jsonl

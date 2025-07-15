@@ -1,0 +1,430 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Insurance chatbot user query regression eval</title>
+    <style>
+      body {
+        font-family:
+          -apple-system,
+          BlinkMacSystemFont,
+          Segoe UI,
+          Roboto,
+          Helvetica,
+          Arial,
+          sans-serif;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        text-align: left;
+        word-break: break-all;
+      }
+      th,
+      td {
+        padding: 5px;
+        min-width: 200px;
+        white-space: pre-line;
+        vertical-align: top;
+      }
+
+      tr > td[data-content^='[PASS]'] {
+        color: green;
+      }
+      tr > td[data-content^='[FAIL]'] {
+        color: #ad0000;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <thead>
+        
+        <th>user_query</th>
+        
+        <th>[ollama:chat:gemma3:1b] prompts/prompt_v1.txt: You are a helpful insurance assistant. Answer clearly and concisely within 1-2 sentences.
+User: {{ user_query }}</th>
+        
+        <th>[ollama:chat:gemma3:1b] prompts/prompt_v2.txt: You&#39;re a licensed insurance advisor. Answer clearly and concisely.
+User: {{ user_query }}</th>
+        
+      </thead>
+      <tbody>
+        
+        <tr>
+          
+          <td data-content="What does liability insurance cover?">What does liability insurance cover?</td>
+          
+          <td data-content="[PASS] (1.00)
+
+Liability insurance covers you if someone gets injured on your property or due to your business activities, protecting you financially from legal claims.
+
+Pass Reason: All assertions passed">[PASS] (1.00)
+
+Liability insurance covers you if someone gets injured on your property or due to your business activities, protecting you financially from legal claims.
+
+Pass Reason: All assertions passed</td>
+          
+          <td data-content="[PASS] (1.00)
+
+Okay, here&#39;s a concise explanation of what liability insurance covers:
+
+Liability insurance protects you financially if someone gets injured or their property is damaged as a result of your actions or negligence. It covers:
+
+*   **Bodily Injury:**  Medical expenses, lost wages, and pain and suffering if someone is injured due to your fault.
+*   **Property Damage:** Costs to repair or replace damage caused to someone else&#39;s property (like a car accident).
+*   **Legal Defense:**  Pays for legal costs if someone sues you.
+
+**In short, it’s about protecting you from lawsuits.**
+
+**Disclaimer:** *I am an AI Chatbot and not a licensed insurance advisor. This information is for general knowledge purposes only and does not constitute financial advice. You should consult with a qualified insurance professional for personalized advice based on your specific situation.*
+
+Pass Reason: All assertions passed">[PASS] (1.00)
+
+Okay, here&#39;s a concise explanation of what liability insurance covers:
+
+Liability insurance protects you financially if someone gets injured or their property is damaged as a result of your actions or negligence. It covers:
+
+*   **Bodily Injury:**  Medical expenses, lost wages, and pain and suffering if someone is injured due to your fault.
+*   **Property Damage:** Costs to repair or replace damage caused to someone else&#39;s property (like a car accident).
+*   **Legal Defense:**  Pays for legal costs if someone sues you.
+
+**In short, it’s about protecting you from lawsuits.**
+
+**Disclaimer:** *I am an AI Chatbot and not a licensed insurance advisor. This information is for general knowledge purposes only and does not constitute financial advice. You should consult with a qualified insurance professional for personalized advice based on your specific situation.*
+
+Pass Reason: All assertions passed</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td data-content="Is flood damage covered under homeowners insurance?">Is flood damage covered under homeowners insurance?</td>
+          
+          <td data-content="[PASS] (1.00)
+
+Generally, flood damage is **not** automatically covered under standard homeowners insurance, but it may be covered if you have a separate flood insurance policy.
+
+Pass Reason: All assertions passed">[PASS] (1.00)
+
+Generally, flood damage is **not** automatically covered under standard homeowners insurance, but it may be covered if you have a separate flood insurance policy.
+
+Pass Reason: All assertions passed</td>
+          
+          <td data-content="[PASS] (1.00)
+
+Generally, **yes, flood damage is covered under homeowners insurance**, but it’s a crucial point to understand.
+
+**Here’s the breakdown:**
+
+* **Standard Coverage:** Most standard homeowners insurance policies *do* cover flood damage.
+* **Flood Zone:**  However, the level of coverage varies significantly based on the *flood zone* your property is located in.  Flood zones are areas specifically designated by FEMA (Federal Emergency Management Agency) and are at higher risk.
+* **Coverage Limits:**  Your policy will have a coverage limit for flood damage.  This means the insurance company will pay out a specific amount if the damage exceeds that limit.
+
+**Important:** It’s *essential* to review your policy carefully, understand your flood zone, and discuss your risk with your insurance agent to determine the exact coverage you have and what your potential liability might be.
+
+**Disclaimer:** *I am an AI Chatbot and not a licensed insurance advisor. This information is for general knowledge and informational purposes only, and does not constitute financial or insurance advice. Always consult with a qualified insurance professional for personalized advice.*
+
+Would you like me to tell you more about:
+
+*   Flood zones and their impact on coverage?
+*   Different types of flood coverage available?
+
+Pass Reason: All assertions passed">[PASS] (1.00)
+
+Generally, **yes, flood damage is covered under homeowners insurance**, but it’s a crucial point to understand.
+
+**Here’s the breakdown:**
+
+* **Standard Coverage:** Most standard homeowners insurance policies *do* cover flood damage.
+* **Flood Zone:**  However, the level of coverage varies significantly based on the *flood zone* your property is located in.  Flood zones are areas specifically designated by FEMA (Federal Emergency Management Agency) and are at higher risk.
+* **Coverage Limits:**  Your policy will have a coverage limit for flood damage.  This means the insurance company will pay out a specific amount if the damage exceeds that limit.
+
+**Important:** It’s *essential* to review your policy carefully, understand your flood zone, and discuss your risk with your insurance agent to determine the exact coverage you have and what your potential liability might be.
+
+**Disclaimer:** *I am an AI Chatbot and not a licensed insurance advisor. This information is for general knowledge and informational purposes only, and does not constitute financial or insurance advice. Always consult with a qualified insurance professional for personalized advice.*
+
+Would you like me to tell you more about:
+
+*   Flood zones and their impact on coverage?
+*   Different types of flood coverage available?
+
+Pass Reason: All assertions passed</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td data-content="What is the difference between collision and comprehensive coverage?">What is the difference between collision and comprehensive coverage?</td>
+          
+          <td data-content="[PASS] (1.00)
+
+Collision coverage pays for damage to your vehicle caused by an accident, while comprehensive coverage covers damage from events like theft, vandalism, or natural disasters.
+
+Pass Reason: All assertions passed">[PASS] (1.00)
+
+Collision coverage pays for damage to your vehicle caused by an accident, while comprehensive coverage covers damage from events like theft, vandalism, or natural disasters.
+
+Pass Reason: All assertions passed</td>
+          
+          <td data-content="[PASS] (1.00)
+
+  Okay, here’s a clear explanation of the difference between Collision and Comprehensive coverage:
+
+**Collision Coverage:**
+
+*   **What it covers:** Pays for damage to your vehicle caused by another driver&#39;s fault, regardless of who is at fault.
+*   **What it *doesn’t* cover:**  Damage from things like hail, vandalism, theft, or hitting an animal.
+
+**Comprehensive Coverage:**
+
+*   **What it covers:** Pays for damage to your vehicle caused by events *other than* another driver’s accident.  This includes things like:
+*   Theft
+*   Vandalism
+*   Falling objects
+*   Fire
+*   Hitting an animal
+
+**In short:** Collision is about accidents *with* other drivers, while comprehensive is about accidents *without* other drivers.**
+
+**Do you want me to tell you about how much each covers, or perhaps discuss which coverage might be more important for *you* based on your specific situation?**
+
+  Pass Reason: All assertions passed">[PASS] (1.00)
+
+  Okay, here’s a clear explanation of the difference between Collision and Comprehensive coverage:
+
+**Collision Coverage:**
+
+*   **What it covers:** Pays for damage to your vehicle caused by another driver&#39;s fault, regardless of who is at fault.
+*   **What it *doesn’t* cover:**  Damage from things like hail, vandalism, theft, or hitting an animal.
+
+**Comprehensive Coverage:**
+
+*   **What it covers:** Pays for damage to your vehicle caused by events *other than* another driver’s accident.  This includes things like:
+*   Theft
+*   Vandalism
+*   Falling objects
+*   Fire
+*   Hitting an animal
+
+**In short:** Collision is about accidents *with* other drivers, while comprehensive is about accidents *without* other drivers.**
+
+**Do you want me to tell you about how much each covers, or perhaps discuss which coverage might be more important for *you* based on your specific situation?**
+
+  Pass Reason: All assertions passed</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td data-content="How can I lower my car insurance premium?">How can I lower my car insurance premium?</td>
+          
+          <td data-content="[PASS] (1.00)
+
+To lower your car insurance premium, consider increasing your deductible, bundling your policies, or shopping around for quotes from multiple insurers.
+
+Pass Reason: All assertions passed">[PASS] (1.00)
+
+To lower your car insurance premium, consider increasing your deductible, bundling your policies, or shopping around for quotes from multiple insurers.
+
+Pass Reason: All assertions passed</td>
+          
+          <td data-content="[PASS] (1.00)
+
+Okay, let’s explore ways to lower your car insurance premium. Here’s a breakdown of common strategies:
+
+**1. Shop Around &amp; Compare Quotes:**
+
+* **Get quotes from multiple companies:** Don’t settle for the first offer you receive. Use websites like NerdWallet, ValuePenguin, or directly compare quotes at companies like State Farm, Geico, Progressive, and Allstate.
+* **Consider different coverage options:**  Are you *really* insured for everything?  Reducing coverage (e.g., dropping liability) can lower your premium.
+
+**2. Improve Your Driving Record:**
+
+* **Maintain a clean driving record:** This is *huge*.  A good record significantly reduces your risk.
+* **Avoid accidents &amp; tickets:**  Even minor infractions can impact your premium.
+
+**3. Enhance Your Vehicle:**
+
+* **Consider a safer car:** Newer models with safety features often come with lower premiums.
+* **Get security features:**  Alarm systems, tracking devices, and anti-theft devices can reduce risk.
+
+**4. Modify Your Coverage:**
+
+* **Reduce deductibles:** A lower deductible means you’ll pay more out-of-pocket if you have a claim, but the premium will drop.
+* **Increase your coverage limits:**  Make sure your coverage is adequate for your needs, but don’t over-protect.
+
+**5.  Other Factors:**
+
+* **Age &amp; Driving History:** Younger and safer drivers typically get lower rates.
+* **Credit Score:**  Some insurers use credit scores to determine rates.  A higher score can lead to lower premiums.
+
+**Disclaimer:** *I am an AI Chatbot and not a licensed insurance advisor. This information is for general guidance only and does not constitute professional advice.  It’s essential to consult with a qualified insurance professional to determine the best insurance options for your specific situation.*
+
+**To help me give you more tailored advice, could you tell me:**
+
+*   What type of car do you have?
+*   Where do you live (general location is fine)?
+
+Pass Reason: All assertions passed">[PASS] (1.00)
+
+Okay, let’s explore ways to lower your car insurance premium. Here’s a breakdown of common strategies:
+
+**1. Shop Around &amp; Compare Quotes:**
+
+* **Get quotes from multiple companies:** Don’t settle for the first offer you receive. Use websites like NerdWallet, ValuePenguin, or directly compare quotes at companies like State Farm, Geico, Progressive, and Allstate.
+* **Consider different coverage options:**  Are you *really* insured for everything?  Reducing coverage (e.g., dropping liability) can lower your premium.
+
+**2. Improve Your Driving Record:**
+
+* **Maintain a clean driving record:** This is *huge*.  A good record significantly reduces your risk.
+* **Avoid accidents &amp; tickets:**  Even minor infractions can impact your premium.
+
+**3. Enhance Your Vehicle:**
+
+* **Consider a safer car:** Newer models with safety features often come with lower premiums.
+* **Get security features:**  Alarm systems, tracking devices, and anti-theft devices can reduce risk.
+
+**4. Modify Your Coverage:**
+
+* **Reduce deductibles:** A lower deductible means you’ll pay more out-of-pocket if you have a claim, but the premium will drop.
+* **Increase your coverage limits:**  Make sure your coverage is adequate for your needs, but don’t over-protect.
+
+**5.  Other Factors:**
+
+* **Age &amp; Driving History:** Younger and safer drivers typically get lower rates.
+* **Credit Score:**  Some insurers use credit scores to determine rates.  A higher score can lead to lower premiums.
+
+**Disclaimer:** *I am an AI Chatbot and not a licensed insurance advisor. This information is for general guidance only and does not constitute professional advice.  It’s essential to consult with a qualified insurance professional to determine the best insurance options for your specific situation.*
+
+**To help me give you more tailored advice, could you tell me:**
+
+*   What type of car do you have?
+*   Where do you live (general location is fine)?
+
+Pass Reason: All assertions passed</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td data-content="What should I do if I have a car accident?">What should I do if I have a car accident?</td>
+          
+          <td data-content="[PASS] (1.00)
+
+If you’ve been in a car accident, contact your insurance company immediately to report the incident and begin the claims process.  It’s important to cooperate with their investigation to protect your rights and coverage.
+
+Pass Reason: All assertions passed">[PASS] (1.00)
+
+If you’ve been in a car accident, contact your insurance company immediately to report the incident and begin the claims process.  It’s important to cooperate with their investigation to protect your rights and coverage.
+
+Pass Reason: All assertions passed</td>
+          
+          <td data-content="[PASS] (1.00)
+
+  Okay, here’s a clear breakdown of what to do after a car accident:
+
+**1. Ensure Safety:**
+
+*   **Move to a Safe Location:** If possible, move your vehicle and any passengers to a safe location away from traffic.
+*   **Check for Injuries:** Make sure everyone involved is okay.
+
+**2. Call the Police:**
+
+*   **Report the Accident:**  Even if there are no injuries, it’s good practice to call the police to document the accident, obtain a police report, and ensure proper record-keeping.
+
+**3. Exchange Information:**
+
+*   **Talk to Witnesses:**  Get the names and contact information of any witnesses.
+*   **Exchange Information:**  With the other driver(s), exchange the following:
+*   Full names
+*   Driver&#39;s license numbers
+*   Insurance information (company and policy number)
+*   Vehicle information (license plate number, make, and model)
+
+**4. Document the Scene:**
+
+*   **Take Photos/Videos:**  Photograph or video the damage to *both* vehicles, the accident scene, and any visible road signs.
+*   **Note Details:** Write down what happened as soon as possible – the date, time, location, weather conditions, and a brief description of the events.
+
+**5. Consult with an Attorney:**
+
+*   **Legal Advice:** It’s *strongly* recommended to consult with a qualified personal injury attorney.  They can advise you on your rights, potential liability, and the best course of action.
+
+**6. Contact Your Insurance Company:**
+
+*   **Report the Claim:** Contact your insurance company to report the accident and start the claims process.  They will likely want to be involved.
+
+**Resources:**
+
+*   **State Insurance Department:** [https://www.insurance.gov/](https://www.insurance.gov/) (Find your state’s agency)
+*   **SAMHSA (Substance Abuse and Mental Health Services Administration):** [https://www.samhsa.gov/](https://www.samhsa.gov/) (Information about traffic safety and accident reporting)
+
+---
+
+**Disclaimer:** *I am an AI Chatbot and not a licensed insurance advisor. This information is for general guidance only and does not constitute legal advice. You should consult with a qualified professional for advice tailored to your specific situation.*
+
+To help me give you more specific advice, could you tell me:
+
+*   Are you looking for legal advice?
+*   Where are you located (generally)?
+
+  Pass Reason: All assertions passed">[PASS] (1.00)
+
+  Okay, here’s a clear breakdown of what to do after a car accident:
+
+**1. Ensure Safety:**
+
+*   **Move to a Safe Location:** If possible, move your vehicle and any passengers to a safe location away from traffic.
+*   **Check for Injuries:** Make sure everyone involved is okay.
+
+**2. Call the Police:**
+
+*   **Report the Accident:**  Even if there are no injuries, it’s good practice to call the police to document the accident, obtain a police report, and ensure proper record-keeping.
+
+**3. Exchange Information:**
+
+*   **Talk to Witnesses:**  Get the names and contact information of any witnesses.
+*   **Exchange Information:**  With the other driver(s), exchange the following:
+*   Full names
+*   Driver&#39;s license numbers
+*   Insurance information (company and policy number)
+*   Vehicle information (license plate number, make, and model)
+
+**4. Document the Scene:**
+
+*   **Take Photos/Videos:**  Photograph or video the damage to *both* vehicles, the accident scene, and any visible road signs.
+*   **Note Details:** Write down what happened as soon as possible – the date, time, location, weather conditions, and a brief description of the events.
+
+**5. Consult with an Attorney:**
+
+*   **Legal Advice:** It’s *strongly* recommended to consult with a qualified personal injury attorney.  They can advise you on your rights, potential liability, and the best course of action.
+
+**6. Contact Your Insurance Company:**
+
+*   **Report the Claim:** Contact your insurance company to report the accident and start the claims process.  They will likely want to be involved.
+
+**Resources:**
+
+*   **State Insurance Department:** [https://www.insurance.gov/](https://www.insurance.gov/) (Find your state’s agency)
+*   **SAMHSA (Substance Abuse and Mental Health Services Administration):** [https://www.samhsa.gov/](https://www.samhsa.gov/) (Information about traffic safety and accident reporting)
+
+---
+
+**Disclaimer:** *I am an AI Chatbot and not a licensed insurance advisor. This information is for general guidance only and does not constitute legal advice. You should consult with a qualified professional for advice tailored to your specific situation.*
+
+To help me give you more specific advice, could you tell me:
+
+*   Are you looking for legal advice?
+*   Where are you located (generally)?
+
+  Pass Reason: All assertions passed</td>
+          
+        </tr>
+        
+      </tbody>
+    </table>
+  </body>
+</html>
