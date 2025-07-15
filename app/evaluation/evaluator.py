@@ -11,6 +11,7 @@ from datetime import datetime
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
 
 from app.evaluation.eval_data import get_eval_dataset, get_question_categories
+from app.prompts.system_prompt import SYSTEM_PROMPT
 from app.tracking import get_ollama_response
 
 
@@ -19,7 +20,7 @@ async def evaluate_single_question(question: str, ground_truth: str, use_context
     try:
         # Create messages for the model
         messages = [
-            {"role": "system", "content": "You are a helpful insurance assistant."},
+            {"role": "system", "content": SYSTEM_PROMPT},
             {"role": "user", "content": question},
         ]
 

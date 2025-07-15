@@ -10,6 +10,7 @@ from app.config.config import (
 from app.evaluation import eval_data
 from app.llm.llm import embeddings, llm
 from app.models.models import ChatRequest, ChatResponse, HealthResponse
+from app.prompts.system_prompt import SYSTEM_PROMPT, SYSTEM_PROMPT_CONTEXT
 from app.tracking import get_ollama_response
 from app.vector_store.vector_store import get_context, vector_store
 
@@ -61,13 +62,13 @@ async def chat(request: ChatRequest):
             messages = [
                 {
                     "role": "system",
-                    "content": "You are a helpful insurance assistant. Use the provided context to answer user questions.",
+                    "content": SYSTEM_PROMPT_CONTEXT,
                 },
                 {"role": "user", "content": f"Context: {context}\n\nQuestion: {request.message}"},
             ]
         else:
             messages = [
-                {"role": "system", "content": "You are a helpful insurance assistant."},
+                {"role": "system", "content": SYSTEM_PROMPT},
                 {"role": "user", "content": request.message},
             ]
 
