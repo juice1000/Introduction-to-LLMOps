@@ -1,13 +1,10 @@
+from pathlib import Path
+
 from fastapi import APIRouter, HTTPException
 
-from app.config.config import (
-    API_TITLE,
-    API_VERSION,
-    CHROMA_PERSIST_DIRECTORY,
-    OLLAMA_BASE_URL,
-    OLLAMA_MODEL,
-)
+from app.config.config import CHROMA_PERSIST_DIRECTORY, OLLAMA_BASE_URL, OLLAMA_MODEL
 from app.evaluation import eval_data
+from app.evaluation.semantic_evaluator import evaluate_production_question
 from app.llm.llm import embeddings, llm
 from app.models.models import ChatRequest, ChatResponse, HealthResponse
 from app.prompts.system_prompt import SYSTEM_PROMPT, SYSTEM_PROMPT_CONTEXT
@@ -74,6 +71,14 @@ async def chat(request: ChatRequest):
 
         # Use auto-logged OpenAI client instead of direct LLM
         response = get_ollama_response(messages)
+
+        # Perform semantic evaluation in background
+        try:
+            evaluation_result = await evaluate_production_question(request.message, response)
+            print(f"🔍 Semantic evaluation: {evaluation_result}")
+        except Exception as e:
+            print(f"Error in semantic evaluation: {e}")
+            evaluation_result = None
 
         return ChatResponse(response=response, sources=sources if sources else None)
     except Exception as e:
@@ -148,3 +153,58 @@ async def run_evaluation_endpoint(
 
     except Exception as e:
         return {"status": "error", "error": str(e)}
+
+
+@router.get("/eval/production/stats")
+async def get_production_evaluation_stats():
+    """Get statistics about production evaluations."""
+    from pathlib import Path
+
+    from app.evaluation.semantic_evaluator import semantic_evaluator
+
+    try:
+        # Count evaluation files
+        eval_dir = Path("app/evaluation/evaluation_results/production_evaluations")
+        eval_files = list(eval_dir.glob("*.json")) if eval_dir.exists() else []
+
+        # Get new questions count
+        new_questions_count = len(semantic_evaluator.new_questions)
+
+        return {
+            "total_production_evaluations": len(eval_files),
+            "new_questions_saved": new_questions_count,
+            "confidence_threshold": semantic_evaluator.confidence_threshold,
+            "evaluation_dataset_size": len(semantic_evaluator.eval_dataset),
+        }
+    except Exception as e:
+        return {"error": str(e)}
+
+
+@router.get("/eval/production/new-questions")
+async def get_new_questions():
+    """Get list of new questions that weren't matched in evaluation dataset."""
+    from app.evaluation.semantic_evaluator import semantic_evaluator
+
+    try:
+        return {
+            "total_new_questions": len(semantic_evaluator.new_questions),
+            "questions": semantic_evaluator.new_questions[-10:],  # Return last 10
+        }
+    except Exception as e:
+        return {"error": str(e)}
+
+
+@router.post("/eval/production/test-similarity")
+async def test_similarity(question: str):
+    """Test semantic similarity detection for a question."""
+    from app.evaluation.semantic_evaluator import semantic_evaluator
+
+    try:
+        result = await semantic_evaluator.find_similar_question(question)
+        return {
+            "test_question": question,
+            "similarity_result": result,
+            "confidence_threshold": semantic_evaluator.confidence_threshold,
+        }
+    except Exception as e:
+        return {"error": str(e)}

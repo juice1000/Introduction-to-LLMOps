@@ -1,0 +1,25 @@
+{
+  "timestamp": "2025-07-15T14:21:46.771228",
+  "evaluation_type": "production_similarity_match",
+  "user_question": "Hello",
+  "llm_response": "Hello there! How can I help you today?",
+  "matched_question": "How do I file a car insurance claim?",
+  "ground_truth": "To file a car insurance claim, contact your insurance provider immediately after an accident. Provide details including time, location, parties involved, and photos. Get a police report if required. Your insurer will assign a claims adjuster and guide you through the process.",
+  "similarity_confidence": 0.95,
+  "similarity_reason": "The user question asks about a specific process \u2013 filing a claim \u2013 which is a core element of insurance claims.",
+  "similarity_detection_time": 1.3830530643463135,
+  "response_time": 2.879006862640381,
+  "llm_judge_result": {
+    "judge_response": "Accuracy: 2/5\nCompleteness: 3/5\nClarity: 4/5\nRelevance: 5/5\nHelpfulness: 3/5\nOverall: 3.0/5\nFeedback: The response is perfectly adequate but lacks detail. It's a polite greeting but doesn't offer any specific guidance regarding filing a car insurance claim. It\u2019s a very basic and general answer.",
+    "scores": {
+      "accuracy": 2.0,
+      "completeness": 3.0,
+      "clarity": 4.0,
+      "relevance": 5.0,
+      "helpfulness": 3.0,
+      "overall": 3.0
+    },
+    "overall_score": 3.0
+  },
+  "llm_judge_score": 3.0
+}

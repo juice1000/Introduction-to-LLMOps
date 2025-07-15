@@ -1,0 +1,25 @@
+{
+  "timestamp": "2025-07-15T13:46:59.975802",
+  "evaluation_type": "production_similarity_match",
+  "user_question": "What kind of protection does liability insurance provide?",
+  "llm_response": "This is a simulated response to: What kind of protection does liability insurance provide?",
+  "matched_question": "Do I need uninsured motorist coverage?",
+  "ground_truth": "Uninsured motorist coverage protects you if you're hit by a driver without insurance or insufficient coverage. While not required in all states, it's highly recommended as many drivers are underinsured or uninsured.",
+  "similarity_confidence": 0.95,
+  "similarity_reason": "The question \\\"What kind of protection does liability insurance provide?\\\" directly asks about the coverage offered by liability insurance. It\u2019s a core concept within the broader umbrella of liability insurance.",
+  "similarity_detection_time": 1.4490108489990234,
+  "response_time": 3.32338285446167,
+  "llm_judge_result": {
+    "judge_response": "Accuracy: 3/5\nCompleteness: 4/5\nClarity: 4/5\nRelevance: 5/5\nHelpfulness: 4/5\nOverall: 4/5\nFeedback: The response is accurate and provides a good basic understanding of liability insurance\u2019s protection. It correctly identifies the key benefit \u2013 protecting you from financial loss due to being hit while uninsured or underinsured. However, it could be slightly more detailed \u2013 mentioning specific types of incidents (e.g., pedestrian accidents, car accidents) would enhance its usefulness.\n\n",
+    "scores": {
+      "accuracy": 3.0,
+      "completeness": 4.0,
+      "clarity": 4.0,
+      "relevance": 5.0,
+      "helpfulness": 4.0,
+      "overall": 4.0
+    },
+    "overall_score": 4.0
+  },
+  "llm_judge_score": 4.0
+}

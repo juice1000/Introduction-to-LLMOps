@@ -1,0 +1,25 @@
+{
+  "timestamp": "2025-07-15T13:47:02.635242",
+  "evaluation_type": "production_similarity_match",
+  "user_question": "How can I make a claim for my auto insurance?",
+  "llm_response": "This is a simulated response to: How can I make a claim for my auto insurance?",
+  "matched_question": "What's the difference between term and whole life insurance?",
+  "ground_truth": "Term life insurance provides coverage for a specific time period (10-30 years) and pays out only if the insured dies during that term. Whole life insurance offers lifetime coverage with a cash value component that grows over time and can be borrowed against.",
+  "similarity_confidence": 0.95,
+  "similarity_reason": "The question directly asks about the process of making a claim \u2013 it\u2019s a core function of insurance.",
+  "similarity_detection_time": 0.9285671710968018,
+  "response_time": 2.597677230834961,
+  "llm_judge_result": {
+    "judge_response": "Accuracy: 2/5\nCompleteness: 3/5\nClarity: 4/5\nRelevance: 5/5\nHelpfulness: 4/5\nOverall: 3.5/5\nFeedback: The response provides a basic overview of the claim process, but it lacks specific details like the steps involved, required documentation, or potential complexities. It\u2019s a good starting point but needs more depth.  It\u2019s very general and doesn\u2019t offer practical guidance.\n\n",
+    "scores": {
+      "accuracy": 2.0,
+      "completeness": 3.0,
+      "clarity": 4.0,
+      "relevance": 5.0,
+      "helpfulness": 4.0,
+      "overall": 3.5
+    },
+    "overall_score": 3.5
+  },
+  "llm_judge_score": 3.5
+}

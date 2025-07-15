@@ -1,0 +1,25 @@
+{
+  "timestamp": "2025-07-15T13:59:07.778075",
+  "evaluation_type": "production_similarity_match",
+  "user_question": "Hello!",
+  "llm_response": "Hello there! How can I help you today?",
+  "matched_question": "What does liability insurance cover?",
+  "ground_truth": "Liability insurance covers costs if you're found legally responsible for someone else's injury or property damage. It typically includes bodily injury liability and property damage liability, helping pay for medical expenses, legal fees, and property repairs for the other party.",
+  "similarity_confidence": 0.95,
+  "similarity_reason": "The question is unrelated to insurance and lacks any specific insurance terminology.",
+  "similarity_detection_time": 1.6847727298736572,
+  "response_time": 3.6312289237976074,
+  "llm_judge_result": {
+    "judge_response": "Accuracy: 2/5\nCompleteness: 3/5\nClarity: 4/5\nRelevance: 5/5\nHelpfulness: 3/5\nOverall: 3/5\nFeedback: The response is perfectly acceptable but lacks depth. It provides a basic definition of liability insurance but doesn\u2019t delve into specific types or scenarios. It\u2019s a good starting point but could be significantly more informative. \n\nEssentially, it's a correct overview but doesn\u2019t go beyond that.  A more detailed explanation of the different types of liability insurance coverage would improve it.",
+    "scores": {
+      "accuracy": 2.0,
+      "completeness": 3.0,
+      "clarity": 4.0,
+      "relevance": 5.0,
+      "helpfulness": 3.0,
+      "overall": 3.0
+    },
+    "overall_score": 3.0
+  },
+  "llm_judge_score": 3.0
+}

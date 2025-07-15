@@ -1,0 +1,25 @@
+{
+  "timestamp": "2025-07-15T13:47:59.800089",
+  "evaluation_type": "production_similarity_match",
+  "user_question": "What are the business hours for customer service?",
+  "llm_response": "This is a simulated response to: What are the business hours for customer service?",
+  "matched_question": "How do I file a car insurance claim?",
+  "ground_truth": "To file a car insurance claim, contact your insurance provider immediately after an accident. Provide details including time, location, parties involved, and photos. Get a police report if required. Your insurer will assign a claims adjuster and guide you through the process.",
+  "similarity_confidence": 0.9,
+  "similarity_reason": "The question \"What are the business hours for customer service?\" directly asks about the operational hours of a service offered by an insurance company. This falls under the broader category of insurance service operations and time-related inquiries.",
+  "similarity_detection_time": 1.262087106704712,
+  "response_time": 3.2203240394592285,
+  "llm_judge_result": {
+    "judge_response": "Accuracy: 2/5\nCompleteness: 3/5\nClarity: 4/5\nRelevance: 5/5\nHelpfulness: 4/5\nOverall: 3.5/5\nFeedback: The response is accurate \u2013 it correctly states that customer service hours are a typical contact point after an accident. However, it lacks detail about *which* insurance provider\u2019s customer service hours it refers to. It also doesn\u2019t mention alternative contact methods (e.g., phone, email).  It\u2019s a good starting point but could be significantly improved with more context.\n\n",
+    "scores": {
+      "accuracy": 2.0,
+      "completeness": 3.0,
+      "clarity": 4.0,
+      "relevance": 5.0,
+      "helpfulness": 4.0,
+      "overall": 3.5
+    },
+    "overall_score": 3.5
+  },
+  "llm_judge_score": 3.5
+}

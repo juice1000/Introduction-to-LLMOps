@@ -1,0 +1,25 @@
+{
+  "timestamp": "2025-07-15T13:49:12.127008",
+  "evaluation_type": "production_similarity_match",
+  "user_question": "What does liability insurance cover?",
+  "llm_response": "Liability insurance covers financial losses if you're found legally responsible for causing harm to someone else. \n\nHere\u2019s a breakdown of common coverages:\n\n*   **Bodily Injury:**  Pays for medical bills, lost wages, and pain & suffering if someone is injured due to your actions.\n*   **Property Damage:** Covers damage you cause to someone else\u2019s property (like a car or building).\n*   **Strict Liability:**  You\u2019re responsible for any harm caused, regardless of fault. (e.g., dog bites)\n\n**Basically, it protects you financially if someone gets hurt because of your negligence or actions.**\n\n**Disclaimer:** *This is a general overview and not a substitute for legal advice.  It's important to discuss your specific risks and needs with an insurance professional.*\n\n---\n\n**I'm happy to help you with *insurance-related* questions if they fall within those categories.  Please tell me what you\u2019re looking for.**",
+  "matched_question": "Do I need uninsured motorist coverage?",
+  "ground_truth": "Uninsured motorist coverage protects you if you're hit by a driver without insurance or insufficient coverage. While not required in all states, it's highly recommended as many drivers are underinsured or uninsured.",
+  "similarity_confidence": 0.88,
+  "similarity_reason": "While liability insurance is a component of overall insurance, the question\u2019s focus is on the *definition* of that component \u2013 its specifics.",
+  "similarity_detection_time": 1.7528820037841797,
+  "response_time": 5.595335006713867,
+  "llm_judge_result": {
+    "judge_response": "Accuracy: 5/5\nCompleteness: 5/5\nClarity: 5/5\nRelevance: 5/5\nHelpfulness: 5/5\nOverall: 5/5\nFeedback: The response is excellent and provides a clear and concise explanation of liability insurance coverage. It effectively outlines common coverages and importantly includes a disclaimer, which is crucial. The ground truth response is also well-supported and provides valuable context.\n\nFeedback: The response hits all the key points regarding liability insurance. It\u2019s a solid starting point for someone seeking information and effectively addresses the core question.  It\u2019s a well-structured and informative answer.",
+    "scores": {
+      "accuracy": 5.0,
+      "completeness": 5.0,
+      "clarity": 5.0,
+      "relevance": 5.0,
+      "helpfulness": 5.0,
+      "overall": 5.0
+    },
+    "overall_score": 5.0
+  },
+  "llm_judge_score": 5.0
+}

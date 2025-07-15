@@ -1,0 +1,114 @@
+[
+  {
+    "timestamp": "2025-07-15T13:45:32.793898",
+    "question": "What kind of protection does liability insurance provide?",
+    "llm_response": "This is a simulated response to: What kind of protection does liability insurance provide?",
+    "similarity_check": {
+      "match": false,
+      "confidence": 1.0,
+      "reason": "This question is distinct from the other questions and doesn't involve a specific piece of information related to insurance coverage.",
+      "matched_question": null,
+      "ground_truth": null,
+      "user_question": "What kind of protection does liability insurance provide?"
+    },
+    "response_time": 3.9686930179595947
+  },
+  {
+    "timestamp": "2025-07-15T13:45:35.237247",
+    "question": "How can I make a claim for my auto insurance?",
+    "llm_response": "This is a simulated response to: How can I make a claim for my auto insurance?",
+    "similarity_check": {
+      "match": false,
+      "confidence": 1.0,
+      "reason": "The question is a broad inquiry about insurance policies, not a specific claim-related question.",
+      "matched_question": null,
+      "ground_truth": null,
+      "user_question": "How can I make a claim for my auto insurance?"
+    },
+    "response_time": 2.4429261684417725
+  },
+  {
+    "timestamp": "2025-07-15T13:45:37.158968",
+    "question": "What are the business hours for customer service?",
+    "llm_response": "This is a simulated response to: What are the business hours for customer service?",
+    "similarity_check": {
+      "match": false,
+      "confidence": 0.0,
+      "reason": "These questions all relate to understanding the details and scope of insurance policies, specifically focusing on coverage, conditions, and potential outcomes related to insurance. They all seek to determine the business hours for customer service, which is a related, but distinct, topic.",
+      "matched_question": null,
+      "ground_truth": null,
+      "user_question": "What are the business hours for customer service?"
+    },
+    "response_time": 1.921438217163086
+  },
+  {
+    "timestamp": "2025-07-15T13:45:39.300838",
+    "question": "Can I get insurance for my pet chinchilla?",
+    "llm_response": "This is a simulated response to: Can I get insurance for my pet chinchilla?",
+    "similarity_check": {
+      "match": false,
+      "confidence": 0.0,
+      "reason": "The question is about insurance coverage for animals.",
+      "matched_question": null,
+      "ground_truth": null,
+      "user_question": "Can I get insurance for my pet chinchilla?"
+    },
+    "response_time": 2.1414787769317627
+  },
+  {
+    "timestamp": "2025-07-15T14:12:00.731044",
+    "question": "Hello!",
+    "llm_response": "Hello there! How can I help you today?",
+    "similarity_check": {
+      "match": false,
+      "confidence": 0.85,
+      "reason": "The question is a greeting and doesn\u2019t relate to insurance concepts. It\u2019s a simple opener.",
+      "matched_question": "What does liability insurance cover?",
+      "ground_truth": "Liability insurance covers costs if you're found legally responsible for someone else's injury or property damage. It typically includes bodily injury liability and property damage liability, helping pay for medical expenses, legal fees, and property repairs for the other party.",
+      "user_question": "Hello!"
+    },
+    "response_time": 1.7771539688110352
+  },
+  {
+    "timestamp": "2025-07-15T14:26:10.929835",
+    "question": "Hello!",
+    "llm_response": "Hello there! How can I help you today?",
+    "similarity_check": {
+      "match": false,
+      "confidence": 0.95,
+      "reason": "Both questions explore the primary benefit of insurance.",
+      "matched_question": "Why do I need insurance?",
+      "ground_truth": "Insurance protects you financially from unexpected events that could be financially devastating. It provides peace of mind, helps you comply with legal requirements, protects your assets, and ensures you can recover from covered losses without depleting your savings.",
+      "user_question": "Hello!"
+    },
+    "response_time": 11.680739164352417
+  },
+  {
+    "timestamp": "2025-07-15T14:35:38.418852",
+    "question": "Hello!",
+    "llm_response": "Hello there! How can I help you today?",
+    "similarity_check": {
+      "match": false,
+      "confidence": 0.0,
+      "reason": "Not an insurance question.",
+      "matched_question": null,
+      "ground_truth": null,
+      "user_question": "Hello!"
+    },
+    "response_time": 1.4096128940582275
+  },
+  {
+    "timestamp": "2025-07-15T14:36:05.367566",
+    "question": "Hi!",
+    "llm_response": "Hi there! How can I help you today?",
+    "similarity_check": {
+      "match": false,
+      "confidence": 0.0,
+      "reason": "Not an insurance question.",
+      "matched_question": null,
+      "ground_truth": null,
+      "user_question": "Hi!"
+    },
+    "response_time": 1.3608601093292236
+  }
+]

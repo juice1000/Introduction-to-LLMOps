@@ -1,0 +1,25 @@
+{
+  "timestamp": "2025-07-15T13:47:53.352429",
+  "evaluation_type": "production_similarity_match",
+  "user_question": "What kind of protection does liability insurance provide?",
+  "llm_response": "This is a simulated response to: What kind of protection does liability insurance provide?",
+  "matched_question": "What is comprehensive coverage?",
+  "ground_truth": "Comprehensive coverage protects against damage to your vehicle from non-collision events like theft, vandalism, weather damage, falling objects, or hitting an animal. It's optional unless required by your lender.",
+  "similarity_confidence": 0.85,
+  "similarity_reason": "While the question focuses on liability, it\u2019s a broad inquiry about the overall insurance protection offered, not a specific aspect of liability insurance like coverage details.",
+  "similarity_detection_time": 2.085462808609009,
+  "response_time": 3.9807779788970947,
+  "llm_judge_result": {
+    "judge_response": "Accuracy: 2/5\nCompleteness: 3/5\nClarity: 4/5\nRelevance: 5/5\nHelpfulness: 4/5\nOverall: 3.5/5\nFeedback: The response is generally correct but lacks depth. It states liability insurance protects against 'non-collision events' which is a good starting point, but it doesn\u2019t elaborate on the *specific* types of damage it covers. It also doesn't mention the potential for lawsuits or financial responsibility. A more detailed explanation of potential liabilities would strengthen the response.\n\n",
+    "scores": {
+      "accuracy": 2.0,
+      "completeness": 3.0,
+      "clarity": 4.0,
+      "relevance": 5.0,
+      "helpfulness": 4.0,
+      "overall": 3.5
+    },
+    "overall_score": 3.5
+  },
+  "llm_judge_score": 3.5
+}

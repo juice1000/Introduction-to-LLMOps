@@ -1,0 +1,25 @@
+{
+  "timestamp": "2025-07-15T14:23:20.043895",
+  "evaluation_type": "production_similarity_match",
+  "user_question": "What's my name?",
+  "llm_response": "I\u2019m sorry, I\u2019m not able to answer that question. I\u2019m here to help with insurance-related inquiries. \n\n",
+  "matched_question": "How do I file a car insurance claim?",
+  "ground_truth": "To file a car insurance claim, contact your insurance provider immediately after an accident. Provide details including time, location, parties involved, and photos. Get a police report if required. Your insurer will assign a claims adjuster and guide you through the process.",
+  "similarity_confidence": 0.95,
+  "similarity_reason": "The user question directly asks about the coverage provided by liability insurance.",
+  "similarity_detection_time": 1.2061402797698975,
+  "response_time": 2.8006441593170166,
+  "llm_judge_result": {
+    "judge_response": "Accuracy: 1/5\nCompleteness: 1/5\nClarity: 1/5\nRelevance: 1/5\nHelpfulness: 1/5\nOverall: 1/5\nFeedback: This response is completely unhelpful. It immediately dismisses the user\u2019s question without attempting to answer it. It's a perfectly valid response for an insurance chatbot, but it lacks any attempt at providing information. It\u2019s just a placeholder.\n\n",
+    "scores": {
+      "accuracy": 1.0,
+      "completeness": 1.0,
+      "clarity": 1.0,
+      "relevance": 1.0,
+      "helpfulness": 1.0,
+      "overall": 1.0
+    },
+    "overall_score": 1.0
+  },
+  "llm_judge_score": 1.0
+}

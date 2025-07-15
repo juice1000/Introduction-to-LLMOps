@@ -1,0 +1,25 @@
+{
+  "timestamp": "2025-07-15T13:48:02.724994",
+  "evaluation_type": "production_similarity_match",
+  "user_question": "Can I get insurance for my pet chinchilla?",
+  "llm_response": "This is a simulated response to: Can I get insurance for my pet chinchilla?",
+  "matched_question": "What's the difference between term and whole life insurance?",
+  "ground_truth": "Term life insurance provides coverage for a specific time period (10-30 years) and pays out only if the insured dies during that term. Whole life insurance offers lifetime coverage with a cash value component that grows over time and can be borrowed against.",
+  "similarity_confidence": 0.9,
+  "similarity_reason": "The question \\\"Can I get insurance for my pet chinchilla?\\\" directly asks about insuring a pet, which falls under the umbrella of pet insurance. It\u2019s a specific, targeted inquiry related to animal insurance.",
+  "similarity_detection_time": 1.2952380180358887,
+  "response_time": 2.902763843536377,
+  "llm_judge_result": {
+    "judge_response": "Accuracy: 2/5\nCompleteness: 3/5\nClarity: 4/5\nRelevance: 5/5\nHelpfulness: 4/5\nOverall: 3.5/5\nFeedback: This response is completely missing the core issue. It\u2019s a completely irrelevant answer to the question. It provides completely unrelated insurance terminology and doesn\u2019t address the question of insuring a chinchilla. It needs to provide a direct and helpful answer.\n\n",
+    "scores": {
+      "accuracy": 2.0,
+      "completeness": 3.0,
+      "clarity": 4.0,
+      "relevance": 5.0,
+      "helpfulness": 4.0,
+      "overall": 3.5
+    },
+    "overall_score": 3.5
+  },
+  "llm_judge_score": 3.5
+}

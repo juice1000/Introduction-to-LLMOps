@@ -1,0 +1,25 @@
+{
+  "timestamp": "2025-07-15T14:19:33.237245",
+  "evaluation_type": "production_similarity_match",
+  "user_question": "Hello!",
+  "llm_response": "Hello there! How can I help you today?",
+  "matched_question": "How do I file a car insurance claim?",
+  "ground_truth": "To file a car insurance claim, contact your insurance provider immediately after an accident. Provide details including time, location, parties involved, and photos. Get a police report if required. Your insurer will assign a claims adjuster and guide you through the process.",
+  "similarity_confidence": 0.95,
+  "similarity_reason": "The question directly addresses the process of filing a car insurance claim, which is a specific type of insurance coverage.",
+  "similarity_detection_time": 1.3293650150299072,
+  "response_time": 5.394692897796631,
+  "llm_judge_result": {
+    "judge_response": "Accuracy: 2/5\nCompleteness: 3/5\nClarity: 4/5\nRelevance: 5/5\nHelpfulness: 3/5\nOverall: 3.0/5\nFeedback: The response is perfectly adequate but lacks depth. It\u2019s a standard, safe answer but doesn\u2019t offer any specific guidance or context. It\u2019s a good starting point, but could be significantly improved with more detail.\n\nHere's a breakdown of why I gave the scores:\n\n*   **Accuracy:** The information provided is generally correct, but it\u2019s a very basic overview. It doesn\u2019t delve into specific steps or potential complications.\n*   **Completeness:** It covers the core elements of filing a claim \u2013 time, location, parties, police report. However, it misses important nuances like the role of the claims adjuster and potential complexities (e.g., liability).\n*   **Clarity:** The language is simple and easy to understand.\n*   **Relevance:** Directly answers the question of how to file a car insurance claim.\n*   **Helpfulness:** While informative, it's not particularly helpful to someone seeking detailed information. It\u2019s a helpful *starting point*, but needs further elaboration.\n\nEssentially, the model provides a basic outline, but lacks the depth and detail a user would need to successfully navigate a claim process.",
+    "scores": {
+      "accuracy": 2.0,
+      "completeness": 3.0,
+      "clarity": 4.0,
+      "relevance": 5.0,
+      "helpfulness": 3.0,
+      "overall": 3.0
+    },
+    "overall_score": 3.0
+  },
+  "llm_judge_score": 3.0
+}

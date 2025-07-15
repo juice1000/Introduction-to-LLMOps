@@ -1,0 +1,25 @@
+{
+  "timestamp": "2025-07-15T14:36:40.457366",
+  "evaluation_type": "production_similarity_match",
+  "user_question": "What kind of insurance is for hospitalization?",
+  "llm_response": "We offer a range of hospitalization insurance, including:\n\n*   **Medical Expense Coverage:** Covers costs like doctor visits, tests, and treatments.\n*   **Hospital Readmission Protection:** Helps prevent costly readmissions.\n*   **Critical Illness Coverage:** Pays out if you have a qualifying medical condition.\n\nWould you like me to tell you more about a specific type of coverage?",
+  "matched_question": "What does liability insurance cover?",
+  "ground_truth": "Liability insurance covers costs if you're found legally responsible for someone else's injury or property damage. It typically includes bodily injury liability and property damage liability, helping pay for medical expenses, legal fees, and property repairs for the other party.",
+  "similarity_confidence": 1.0,
+  "similarity_reason": "Both relate to providing coverage and the experience of receiving medical care.",
+  "similarity_detection_time": 1.5839660167694092,
+  "response_time": 3.5906760692596436,
+  "llm_judge_result": {
+    "judge_response": "Accuracy: 3/5\nCompleteness: 4/5\nClarity: 4/5\nRelevance: 5/5\nHelpfulness: 4/5\nOverall: 4/5\nFeedback: The response is generally accurate and provides a good overview of common hospitalization insurance types. However, it lacks detail and doesn't differentiate between different types of coverage (e.g., specific medical conditions). It also doesn\u2019t explain *how* these policies work or what potential benefits they offer.\n\nEssentially, it's a good starting point but needs more depth to be truly helpful.",
+    "scores": {
+      "accuracy": 3.0,
+      "completeness": 4.0,
+      "clarity": 4.0,
+      "relevance": 5.0,
+      "helpfulness": 4.0,
+      "overall": 4.0
+    },
+    "overall_score": 4.0
+  },
+  "llm_judge_score": 4.0
+}
