@@ -1,0 +1,110 @@
+{
+  "summary": {
+    "timestamp": "2025-07-15T14:49:11.084335",
+    "total_questions": 3,
+    "successful_responses": 3,
+    "success_rate": 1.0,
+    "average_word_overlap": 0.3941733941733942,
+    "average_llm_judge_score": 4.566666666666666,
+    "use_context": false,
+    "use_llm_judge": true
+  },
+  "results": [
+    {
+      "question": "What does liability insurance cover?",
+      "ground_truth": "Liability insurance covers costs if you're found legally responsible for someone else's injury or property damage. It typically includes bodily injury liability and property damage liability, helping pay for medical expenses, legal fees, and property repairs for the other party.",
+      "model_response": "Liability insurance covers financial losses if you're found legally responsible for causing harm to someone else.  It protects you from lawsuits. \n\nHere\u2019s a breakdown of common coverage:\n\n*   **Bodily Injury:**  Pays for medical expenses, lost wages, and pain & suffering if someone is injured due to your actions.\n*   **Property Damage:**  Pays for damage you cause to someone else\u2019s property (like a car accident).\n*   **Personal Injury:** Covers legal fees and settlements if someone is injured due to your negligence.\n\n**Essentially, it protects you from being sued.**\n\n**Disclaimer:** *I am an AI Chatbot and not a legal professional. This information is for general knowledge and informational purposes only, and does not constitute legal advice. It is essential to consult with a qualified insurance professional for personalized advice regarding your specific situation.*\n\n---\n\n**Do you have any other questions about insurance that I can help you with?**",
+      "metrics": {
+        "response_length": 963,
+        "ground_truth_length": 279,
+        "word_overlap_ratio": 0.5454545454545454,
+        "response_provided": true,
+        "llm_judge_overall": 5.0,
+        "llm_judge_scores": {
+          "accuracy": 5.0,
+          "completeness": 5.0,
+          "clarity": 5.0,
+          "relevance": 5.0,
+          "helpfulness": 5.0,
+          "overall": 5.0
+        }
+      },
+      "llm_judge": {
+        "judge_response": "Accuracy: 5/5\nCompleteness: 5/5\nClarity: 5/5\nRelevance: 5/5\nHelpfulness: 5/5\nOverall: 5/5\nFeedback: The response is exceptionally clear, concise, and directly addresses the question. It provides a detailed breakdown of common coverage areas \u2013 bodily injury, property damage, and personal injury \u2013 all effectively explaining the core concept of liability insurance. The disclaimer is also a crucial addition.\n\nFeedback: The response effectively explains what liability insurance covers. The addition of a disclaimer is a smart touch, acknowledging the need for professional advice. The response is well-structured and easy to understand.",
+        "scores": {
+          "accuracy": 5.0,
+          "completeness": 5.0,
+          "clarity": 5.0,
+          "relevance": 5.0,
+          "helpfulness": 5.0,
+          "overall": 5.0
+        },
+        "overall_score": 5.0
+      }
+    },
+    {
+      "question": "How do I file a car insurance claim?",
+      "ground_truth": "To file a car insurance claim, contact your insurance provider immediately after an accident. Provide details including time, location, parties involved, and photos. Get a police report if required. Your insurer will assign a claims adjuster and guide you through the process.",
+      "model_response": "Okay, here\u2019s a breakdown of how to file a car insurance claim:\n\n1.  **Report the Incident:** Contact your insurance company immediately.\n2.  **Gather Information:** Collect police report (if applicable), photos of the damage, and any relevant documents.\n3.  **Complete the Claim Form:** Fill out the claim form accurately and completely.\n4.  **Cooperate with the Investigation:** Provide information and answer questions thoroughly.\n\n**Do you want me to help you with anything specific regarding this process?** (e.g., understanding the police report process, or filing a claim with a specific company?)",
+      "metrics": {
+        "response_length": 603,
+        "ground_truth_length": 276,
+        "word_overlap_ratio": 0.35135135135135137,
+        "response_provided": true,
+        "llm_judge_overall": 4.2,
+        "llm_judge_scores": {
+          "accuracy": 5.0,
+          "completeness": 4.0,
+          "clarity": 4.0,
+          "relevance": 5.0,
+          "helpfulness": 4.0,
+          "overall": 4.2
+        }
+      },
+      "llm_judge": {
+        "judge_response": "Here\u2019s an evaluation of the model response:\n\nAccuracy: 5/5\nCompleteness: 4/5\nClarity: 4/5\nRelevance: 5/5\nHelpfulness: 4/5\nOverall: 4.2/5\nFeedback: The response is generally good and covers the essential steps. It\u2019s a solid starting point. However, it\u2019s a little basic and could benefit from more detail, particularly regarding the police report process. It mentions assigning a claims adjuster, which is good, but doesn't offer any guidance on *how* to do this (e.g., what information to provide).\n\nHere\u2019s a more detailed breakdown of why I gave those scores:\n\n*   **Accuracy:** The information is factually correct \u2013 contacting the insurance company is the primary first step. The listed documentation items are standard procedures.\n*   **Completeness:** The response covers the key steps, but could be expanded to include details like:\n    *   The importance of providing a detailed police report \u2013 what information should be included?\n    *   What to do with temporary plates and registration.\n    *   The claim process - what happens after the adjuster is assigned?\n*   **Clarity:** The language is straightforward and easy to understand.\n*   **Relevance:** Directly addresses the question of filing a car insurance claim.\n*   **Helpfulness:** Provides a clear roadmap of the process. It\u2019s a helpful starting point for someone seeking information.\n\n**Overall:** 4.2/5 \u2013  The response is adequate but lacks depth and practical guidance.  It\u2019s a good starting point, but a more thorough explanation would significantly improve its value.",
+        "scores": {
+          "accuracy": 5.0,
+          "completeness": 4.0,
+          "clarity": 4.0,
+          "relevance": 5.0,
+          "helpfulness": 4.0,
+          "overall": 4.2
+        },
+        "overall_score": 4.2
+      }
+    },
+    {
+      "question": "What is comprehensive coverage?",
+      "ground_truth": "Comprehensive coverage protects against damage to your vehicle from non-collision events like theft, vandalism, weather damage, falling objects, or hitting an animal. It's optional unless required by your lender.",
+      "model_response": "Comprehensive coverage is a type of insurance that covers a wide range of potential losses, beyond just damage to your vehicle. It typically includes things like theft, vandalism, fire, hail, and glass breakage. \n\nEssentially, it provides broad protection for your property and possessions.\n\n**Do you have any specific questions about insurance that I can help you with?**",
+      "metrics": {
+        "response_length": 372,
+        "ground_truth_length": 212,
+        "word_overlap_ratio": 0.2857142857142857,
+        "response_provided": true,
+        "llm_judge_overall": 4.5,
+        "llm_judge_scores": {
+          "accuracy": 5.0,
+          "completeness": 4.0,
+          "clarity": 5.0,
+          "relevance": 5.0,
+          "helpfulness": 4.0,
+          "overall": 4.5
+        }
+      },
+      "llm_judge": {
+        "judge_response": "Accuracy: 5/5\nCompleteness: 4/5\nClarity: 5/5\nRelevance: 5/5\nHelpfulness: 4/5\nOverall: 4.5/5\nFeedback: This response is accurate and provides a good, concise definition of comprehensive coverage. It effectively explains the key elements without delving into complex details. It\u2019s a solid starting point for understanding the concept.\n\nEssentially, it covers the core elements of comprehensive coverage \u2013 protection against non-collision events. It\u2019s a well-written explanation.",
+        "scores": {
+          "accuracy": 5.0,
+          "completeness": 4.0,
+          "clarity": 5.0,
+          "relevance": 5.0,
+          "helpfulness": 4.0,
+          "overall": 4.5
+        },
+        "overall_score": 4.5
+      }
+    }
+  ]
+}
